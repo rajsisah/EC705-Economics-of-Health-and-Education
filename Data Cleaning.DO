@@ -286,6 +286,7 @@ replace type_of_insurance = 2 if health_insur_chip == 1 & type_of_insurance != 1
  replace type_of_insurance = 9 if type_of_insurance ==. & health_insur == 1
   replace type_of_insurance = 0 if type_of_insurance ==. 
 
+** gen overall ANC variable **
  gen overall_ANC = 1 if ANC_atleast_four2 == 1 & atleast_two_tet ==1 & iron_100 ==1
 replace overall_ANC = 0 if overall_ANC != 1
 
@@ -297,7 +298,6 @@ replace total_maternal_healthcare1 = 0 if total_maternal_healthcare1 !=1
 gen total_maternal_healthcare2 =  1 if overall_ANC == 1 & institutional_birth ==1 | overall_ANC == 1& health_check_postdel ==1| institutional_birth ==1 & health_check_postdel ==1
 replace total_maternal_healthcare2 = 0 if total_maternal_healthcare2 !=1
 
- 
  
  save "C:\Users\Rajsi Sah\Desktop\NFHS-5\Data Cleaning\EHE NFHS-5 Data\cleaned_data_stata_vf.dta", replace
  
